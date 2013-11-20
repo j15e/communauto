@@ -6,20 +6,55 @@
 <link rel="stylesheet" href="style.css">
 <script type="text/javascript">
 $(document).ready(function(){
-  $("form input").on('keyup',function(){
+  $("form input,select").on('change',function(){
     var weekday = getInt($('#weekday option:selected').val());
     var hours = getInt($('#hours').val());
     var km = getInt($('#km').val());
+    var $plan = $('#plan option:selected');
 
     // Compute & show long distance
     ld = computeLongDistance(Math.ceil(hours / 24), km);
-    $('#lg-time').text(ld.distance.toFixed(2) +" $");
+    $('#lg-time').text(ld.time.toFixed(2) +" $");
     $('#lg-distance').text(ld.distance.toFixed(2) +" $");
     $('#lg-total').text(ld.total.toFixed(2) +" $");
+
+    // Compute & show short distance
+    sd = computeShortDistance(hours, km, weekday, $plan)
+    $('#sd-time').text(sd.time.toFixed(2) +" $");
+    $('#sd-distance').text(sd.distance.toFixed(2) +" $");
+    $('#sd-total').text(sd.total.toFixed(2) +" $");
   })
 
   function getInt(str) {
     return parseInt(str) || 0;
+  }
+
+  function computeShortDistance(hours, km, weekday, $plan){
+    var hourly_price = parseFloat($plan.data('hourly-price'));
+    var daily_price = parseFloat($plan.data('daily-price'));
+    var km_price = parseFloat($plan.data('km-price'));
+    var days = 0;
+
+    // Extra cost for weekend
+    if(weekday >= 4) {
+      hourly_price += 0.5; // @todo +1 for plan lapin
+      daily_price += 5;
+    }
+
+    // Daily cost
+    if(hours > 24) {
+      days = hours - (hours % 24) / 24;
+      hours = hours % 24;
+    }
+
+    time_cost = (daily_price * days) + (hourly_price * hours);
+    km_cost = km_price * km;
+
+    return {
+      time: time_cost,
+      distance: km_cost,
+      total: time_cost + km_cost
+    };
   }
 
   function computeLongDistance(days, km){
@@ -77,12 +112,25 @@ $(document).ready(function(){
               <label for="km">KM</label>
               <input id="km" type="text" placeholder="25">
 
-              <label for="type">Forfait</label>
-              <select id="type">
-                <option value="0.23" data-hour-cost="1.50" data-day-cost="15.0">A</option>
-                <option value="0.32" data-hour-cost="1.75" data-day-cost="17.5">B</option>
-                <option value="0.39" data-hour-cost="2.00" data-day-cost="20.0">C</option>
-                <option value="0.15" data-hour-cost="4.95" data-day-cost="49.5">Lièvre</option>
+              <label for="plan">Forfait</label>
+              <select id="plan">
+                <option value="1"
+                  data-km-price="0.23"
+                  data-hourly-price="1.50"
+                  data-daily-price="15.0">A</option>
+                <option value="2"
+                  data-km-price="0.32"
+                  data-hourly-price="1.75"
+                  data-daily-price="17.5">B</option>
+                <option value="3"
+                  selected="selected"
+                  data-km-price="0.39"
+                  data-hourly-price="2.00"
+                  data-daily-price="20.0">C</option>
+                <option value="4"
+                  data-km-price="0.15"
+                  data-hourly-price="4.95"
+                  data-daily-price="49.5">Lièvre</option>
               </select>
             </fieldset>
           </form>
@@ -100,17 +148,17 @@ $(document).ready(function(){
             <tbody>
               <tr>
                 <th>Temps</th>
-                <td></td>
+                <td id="sd-time"></td>
                 <td id="lg-time"></td>
               </tr>
               <tr>
                 <th>KM</th>
-                <td></td>
+                <td id="sd-distance"></td>
                 <td id="lg-distance"></td>
               </tr>
               <tr>
                 <th>Total</th>
-                <td></td>
+                <td id="sd-total"></td>
                 <td id="lg-total"></td>
               </tr>
             </tbody>

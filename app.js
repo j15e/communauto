@@ -43,10 +43,10 @@ $(document).ready(function(){
       daily_price += daily_extra_price;
     }
 
-    // Daily cost
-    if(hours > 24) {
-      days = hours - (hours % 24) / 24;
-      hours = hours % 24;
+    // Apply daily cost if lower
+    if(hourly_price * hours > daily_price) {
+      days = Math.ceil(hours / 24);
+      hours = 0;
     }
 
     time_cost = (daily_price * days) + (hourly_price * hours);

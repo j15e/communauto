@@ -25,6 +25,8 @@ $(document).ready(function(){
     $('#sd-total').text(sd.total.toFixed(2) +" $");
   })
 
+  $("form input").trigger('change');
+
   function getInt(str) {
     return parseInt(str) || 0;
   }
@@ -107,10 +109,10 @@ $(document).ready(function(){
               </select>
 
               <label for="hours">Heures</label>
-              <input id="hours" type="text" placeholder="2">
+              <input id="hours" type="text" value="8">
 
               <label for="km">KM</label>
-              <input id="km" type="text" placeholder="25">
+              <input id="km" type="text" value="80">
 
               <label for="plan">Forfait</label>
               <select id="plan">

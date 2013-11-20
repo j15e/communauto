@@ -66,7 +66,7 @@ $(document).ready(function(){
     // @todo compute week cost
     days_cost = days * daily_price;
     km_cost = base_km_price * (km > extra_offset ? extra_offset : km);
-    km_cost += base_km_price * (km > extra_offset ? km - extra_offset : 0);
+    km_cost += extra_km_price * (km > extra_offset ? km - extra_offset : 0);
 
     return {
       time: days_cost,

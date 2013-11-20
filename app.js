@@ -33,6 +33,8 @@ $(document).ready(function(){
     var daily_price = parseFloat($plan.data('daily-price'));
     var daily_extra_price = 5;
     var km_price = parseFloat($plan.data('km-price'));
+    var km_price_extra = parseFloat($plan.data('km-price-extra'));
+    var km_extra_offset = 50;
     var days = 0;
 
     // Extra cost for weekend
@@ -48,7 +50,8 @@ $(document).ready(function(){
     }
 
     time_cost = (daily_price * days) + (hourly_price * hours);
-    km_cost = km_price * km;
+    km_cost = km_price * (km > km_extra_offset ? km_extra_offset : km);
+    km_cost += km_price_extra * (km > km_extra_offset ? km - km_extra_offset : 0);
 
     return {
       time: time_cost,

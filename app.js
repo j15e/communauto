@@ -61,7 +61,7 @@ $(document).ready(function(){
   }
 
   function computeLongDistance(days, km){
-    var daily_price = 24.99;
+    var daily_price = 29.95;
     var base_km_price = 0.16;
     var extra_km_price = 0.13;
     var extra_offset = 300;

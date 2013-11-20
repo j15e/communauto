@@ -1,0 +1,47 @@
+/* LAYOUT CSS */
+#layout {
+  padding: 0;
+  position: relative;
+}
+
+header.pure-u {
+  text-align: center;
+  padding: 3em;
+  background: #5EB95E;
+  width: 100%;
+}
+
+.brand-title,
+.brand-tagline {
+  margin: 0;
+}
+.brand-title {
+  text-transform: uppercase;
+}
+.brand-tagline {
+  font-weight: 300;
+  color: #CDECCD;
+}
+
+.content {
+  padding: 2em 3em 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 1em 0;
+}
+.footer a, .footer {
+  color: #888;
+  font-size: 12px;
+}
+.footer .pure-menu a:hover,
+.footer .pure-menu a:focus {
+  background: none;
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 2em 1em 0;
+  }
+}

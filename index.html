@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Le bon forfait communauto</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="pure-g-r" id="layout">
+    <header class="pure-u">
+      <hgroup>
+        <h1 class="brand-title">Communauto</h1>
+        <h2 class="brand-tagline">Trouvez le bon prix</h2>
+      </hgroup>
+    </header>
+
+    <div class="pure-u-1">
+      <div class="content">
+        <!-- A wrapper for all the blog posts -->
+        <div class="posts">
+
+          <form class="pure-form pure-form-stacked">
+            <fieldset>
+              <h2>Vos données</h2>
+
+              <label for="weekday">Jour (plus cher jeudi au dimanche)</label>
+              <select id="weekday">
+                <option value="1">Lundi</option>
+                <option value="2">Mardi</option>
+                <option value="3">Mercredi</option>
+                <option value="4">Jeudi</option>
+                <option value="5">Vendredi</option>
+                <option value="6">Samedi</option>
+                <option value="7">Dimanche</option>
+              </select>
+
+              <label for="hours">Heures</label>
+              <input id="hours" type="text" placeholder="2">
+
+              <label for="km">KM</label>
+              <input id="km" type="text" placeholder="25">
+
+              <label for="type">Forfait</label>
+              <select id="type">
+                <option value="0.23" data-hour-cost="1.50" data-day-cost="15.0">A</option>
+                <option value="0.32" data-hour-cost="1.75" data-day-cost="17.5">B</option>
+                <option value="0.39" data-hour-cost="2.00" data-day-cost="20.0">C</option>
+                <option value="0.15" data-hour-cost="4.95" data-day-cost="49.5">Lièvre</option>
+              </select>
+            </fieldset>
+          </form>
+
+          <h2>Le meilleur forfait</h2>
+
+          <table class="pure-table">
+            <thead>
+              <tr>
+                <th>Coût</th>
+                <th>Courte</th>
+                <th>Longue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Temps</th>
+                <td></td>
+                <td id="lg-time"></td>
+              </tr>
+              <tr>
+                <th>KM</th>
+                <td></td>
+                <td id="lg-distance"></td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <td></td>
+                <td id="lg-total"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <footer class="footer">
+          <a href="">Améliorez ou ajustez le calcul ICI</a> -
+          Conçu par <a href="http://j15e.com">Jean-Philippe Doyle</a> pour ma copine.
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

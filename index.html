@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Le bon forfait communauto</title>
+<title>Le bon forfait et le bon tarif communauto!</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
@@ -12,7 +12,7 @@
     <header class="pure-u">
       <hgroup>
         <h1 class="brand-title">Communauto</h1>
-        <h2 class="brand-tagline">Trouvez le bon prix</h2>
+        <h2 class="brand-tagline">Choisissez le bon tarif</h2>
       </hgroup>
     </header>
 
@@ -23,9 +23,9 @@
 
           <form class="pure-form pure-form-stacked">
             <fieldset>
-              <h2>Vos données</h2>
+              <h2>Votre réservation</h2>
 
-              <label for="weekday">Jour (plus cher jeudi au dimanche)</label>
+              <label for="weekday">Jour de la semaine</label>
               <select id="weekday">
                 <option value="1">Lundi</option>
                 <option value="2">Mardi</option>
@@ -36,10 +36,10 @@
                 <option value="7">Dimanche</option>
               </select>
 
-              <label for="hours">Heures</label>
+              <label for="hours">Nombre d'heures</label>
               <input id="hours" type="text" value="8">
 
-              <label for="km">KM</label>
+              <label for="km">Nombre de KM</label>
               <input id="km" type="text" value="80">
 
               <label for="plan">Forfait</label>
@@ -73,7 +73,9 @@
             </fieldset>
           </form>
 
-          <h2>Le meilleur forfait</h2>
+          <h2>Comparatif des tarifs</h2>
+
+          <p>Longue distance ou courte distance?</p>
 
           <table class="pure-table">
             <thead>
@@ -104,8 +106,8 @@
         </div>
 
         <footer class="footer">
-          <a href="http://github.com/j15e/communauto">Améliorez ou ajustez le calcul ICI</a> -
-          Conçu par <a href="http://j15e.com">Jean-Philippe Doyle</a> pour ma copine.
+          Conçu par <a href="http://j15e.com">Jean-Philippe Doyle</a> pour ma copine.<br/>
+          <span class="fork"><a href="http://github.com/j15e/communauto">Améliorez ou ajustez les calculs</a></span>
         </footer>
       </div>
     </div>

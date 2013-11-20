@@ -25,6 +25,9 @@ $(document).ready(function(){
     $('#sd-total').text(sd.total.toFixed(2) +" $");
   })
 
+  var now = new Date();
+  var weekday = now.getDay();
+  $('#weekday option[value="' + weekday + '"]').attr('selected', 'selected');
   $("form input").trigger('change');
 
   function getInt(str) {

@@ -3,85 +3,9 @@
 <meta charset="utf-8">
 <title>Le bon forfait communauto</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 <link rel="stylesheet" href="style.css">
-<script type="text/javascript">
-$(document).ready(function(){
-  $("form input,select").on('change',function(){
-    var weekday = getInt($('#weekday option:selected').val());
-    var hours = getInt($('#hours').val());
-    var km = getInt($('#km').val());
-    var $plan = $('#plan option:selected');
-
-    // Compute & show long distance
-    ld = computeLongDistance(Math.ceil(hours / 24), km);
-    $('#lg-time').text(ld.time.toFixed(2) +" $");
-    $('#lg-distance').text(ld.distance.toFixed(2) +" $");
-    $('#lg-total').text(ld.total.toFixed(2) +" $");
-
-    // Compute & show short distance
-    sd = computeShortDistance(hours, km, weekday, $plan)
-    $('#sd-time').text(sd.time.toFixed(2) +" $");
-    $('#sd-distance').text(sd.distance.toFixed(2) +" $");
-    $('#sd-total').text(sd.total.toFixed(2) +" $");
-  })
-
-  var now = new Date();
-  var weekday = now.getDay();
-  $('#weekday option[value="' + weekday + '"]').attr('selected', 'selected');
-  $("form input").trigger('change');
-
-  function getInt(str) {
-    return parseInt(str) || 0;
-  }
-
-  function computeShortDistance(hours, km, weekday, $plan){
-    var hourly_price = parseFloat($plan.data('hourly-price'));
-    var daily_price = parseFloat($plan.data('daily-price'));
-    var km_price = parseFloat($plan.data('km-price'));
-    var days = 0;
-
-    // Extra cost for weekend
-    if(weekday >= 4) {
-      hourly_price += 0.5; // @todo +1 for plan lapin
-      daily_price += 5;
-    }
-
-    // Daily cost
-    if(hours > 24) {
-      days = hours - (hours % 24) / 24;
-      hours = hours % 24;
-    }
-
-    time_cost = (daily_price * days) + (hourly_price * hours);
-    km_cost = km_price * km;
-
-    return {
-      time: time_cost,
-      distance: km_cost,
-      total: time_cost + km_cost
-    };
-  }
-
-  function computeLongDistance(days, km){
-    var daily_price = 24.99;
-    var base_km_price = 0.16;
-    var extra_km_price = 0.13;
-    var extra_offset = 300;
-
-    // @todo compute week cost
-    days_cost = days * daily_price;
-    km_cost = base_km_price * (km > extra_offset ? extra_offset : km);
-    km_cost += base_km_price * (km > extra_offset ? km - extra_offset : 0);
-
-    return {
-      time: days_cost,
-      distance: km_cost,
-      total: days_cost + km_cost
-    };
-  }
-});
-</script>
 </head>
 <body>
   <div class="pure-g-r" id="layout">

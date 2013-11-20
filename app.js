@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("form input,select").on('change',function(){
+  $("input, select").on('input change',function(){
     var weekday = getInt($('#weekday option:selected').val());
     var hours = getInt($('#hours').val());
     var km = getInt($('#km').val());

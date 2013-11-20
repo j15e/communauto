@@ -29,14 +29,16 @@ $(document).ready(function(){
 
   function computeShortDistance(hours, km, weekday, $plan){
     var hourly_price = parseFloat($plan.data('hourly-price'));
+    var hourly_extra_price = parseFloat($plan.data('hourly-extra-price'));
     var daily_price = parseFloat($plan.data('daily-price'));
+    var daily_extra_price = 5;
     var km_price = parseFloat($plan.data('km-price'));
     var days = 0;
 
     // Extra cost for weekend
     if(weekday >= 4) {
-      hourly_price += 0.5; // @todo +1 for plan lapin
-      daily_price += 5;
+      hourly_price += hourly_extra_price;
+      daily_price += daily_extra_price;
     }
 
     // Daily cost

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  var $total_cells = $('.js-total-row').find('td');
+
   $("input, select").on('input change',function(){
     var weekday = getInt($('#weekday option:selected').val());
     var hours = getInt($('#hours').val());
@@ -16,12 +18,14 @@ $(document).ready(function(){
     $('#sd-time').text(sd.time.toFixed(2) +" $");
     $('#sd-distance').text(sd.distance.toFixed(2) +" $");
     $('#sd-total').text(sd.total.toFixed(2) +" $");
+
+    highlightCheapest(ld.total, sd.total);
   })
 
   var now = new Date();
   var weekday = now.getDay();
   $('#weekday option[value="' + weekday + '"]').attr('selected', 'selected');
-  $("form input").trigger('change');
+  $("form input").first().trigger('change');
 
   function getInt(str) {
     return parseInt(str) || 0;
@@ -76,5 +80,12 @@ $(document).ready(function(){
       distance: km_cost,
       total: days_cost + km_cost
     };
+  }
+
+  function highlightCheapest(longDistance, shortDistance) {
+    var cheapest = (longDistance < shortDistance) ? 'lg' : 'sd';
+
+    $total_cells.removeClass('highlight');
+    $total_cells.filter('#' + cheapest + '-total').addClass('highlight');
   }
 });

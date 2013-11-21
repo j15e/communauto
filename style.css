@@ -48,6 +48,19 @@ header.pure-u {
   background: none;
 }
 
+.total-table td,
+.total-table th {
+  border: 1px solid #ccc;
+}
+
+.total-table .total-row td {
+  background: #f8d6d6;
+}
+
+.total-table .total-row .highlight {
+  background-color: #cdeccd;
+}
+
 @media (max-width: 480px) {
   .content {
     padding: 2em 1em 0;

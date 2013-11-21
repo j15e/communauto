@@ -39,6 +39,10 @@ header.pure-u {
   color: #888;
   font-size: 11px;
 }
+.footer .disclaimer {
+  color: #444;
+  font-size: 11px;
+}
 .footer .pure-menu a:hover,
 .footer .pure-menu a:focus {
   background: none;

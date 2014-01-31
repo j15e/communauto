@@ -66,7 +66,7 @@ $(document).ready(function(){
 
   function computeLongDistance(days, km){
     var daily_price = parseFloat($('#lg-daily-price option:selected').attr('value'));
-    var base_km_price = 0.16;
+    var base_km_price = 0.17;
     var extra_km_price = 0.13;
     var extra_offset = 300;
 

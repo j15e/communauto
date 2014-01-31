@@ -36,10 +36,8 @@ header.pure-u {
   line-height: 18px;
   font-size: 12px;
 }
-.footer .fork a {
-  color: #888;
-  font-size: 11px;
-}
+.footer .mini,
+.footer .mini a { font-size: 11px; color:#888; }
 .footer .disclaimer {
   color: #444;
   font-size: 11px;

@@ -66,3 +66,5 @@ header.pure-u {
     padding: 2em 1em 0;
   }
 }
+
+.about { max-width: 600px; }

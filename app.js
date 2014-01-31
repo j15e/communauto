@@ -40,20 +40,32 @@ $(document).ready(function(){
     var km_price_extra = parseFloat($plan.data('km-price-extra'));
     var km_extra_offset = 50;
     var days = 0;
+    var days_max = Math.ceil(hours / 24);
+    var time_cost = 0;
+    var km_cost = 0;
 
-    // Extra cost for weekend
-    if(weekday >= 4) {
-      hourly_price += hourly_extra_price;
-      daily_price += daily_extra_price;
+    // Calculate time cost
+    for(var hours_left = hours; hours_left > 0; hours_left = hours_left-24){
+      var day_hourly_price = hourly_price;
+      var day_daily_price = daily_price;
+
+      // Extra cost from thursday to sunday
+      if(weekday >= 4) {
+        day_hourly_price += hourly_extra_price;
+        day_daily_price += daily_extra_price;
+      }
+
+      // Apply daily cost if lower
+      if(day_hourly_price * hours_left > day_daily_price) {
+        time_cost += day_daily_price
+      } else {
+        time_cost += day_hourly_price * hours_left
+      }
+
+      weekday = (weekday < 7) ? weekday + 1 : 1
     }
 
-    // Apply daily cost if lower
-    if(hourly_price * hours > daily_price) {
-      days = Math.ceil(hours / 24);
-      hours = 0;
-    }
-
-    time_cost = (daily_price * days) + (hourly_price * hours);
+    // Calculate distance cost
     km_cost = km_price * (km > km_extra_offset ? km_extra_offset : km);
     km_cost += km_price_extra * (km > km_extra_offset ? km - km_extra_offset : 0);
 

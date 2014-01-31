@@ -2,11 +2,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le bon forfait et le bon tarif communauto!</title>
+<title>Find the best rate for your Communuato ride</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="../app.js"></script>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -14,7 +14,7 @@
     <header class="pure-u">
       <hgroup>
         <h1 class="brand-title">Communauto</h1>
-        <h2 class="brand-tagline">Choisissez le bon tarif</h2>
+        <h2 class="brand-tagline">Choose the best rate</h2>
       </hgroup>
     </header>
 
@@ -24,99 +24,99 @@
         <div class="posts">
 
           <div class="about">
-            <h2>Quel est le meilleur forfait?</h2>
-            <p>Malheureusement, Communauto ne vous suggère pas automatiquement le meilleur forfait selon vos besoins lors d'une réservation. Combien ça coûte si je prend le longue distance versus le courte distance? La différence sur la facture peut parfois être énorme!</p>
-            <p>J'ai donc créé cette calculatrice que vous pouvez utiliser pour comparer plus facilement le coût de votre location <a href="http://communauto.com/">Communauto</a> en fonction de l'utilisation que vous prévoyez en faire.</p>
-            <p>Dernière mise à jour : janvier 2014. <a href="en/">English version</a>.</p>
+            <h2>Which plan to choose?</h2>
+            <p>Unfortunately, Communauto dosen't automatically suggest the best plan to pick when you estimate your rental time and distance. How much does it cost with long distance rate versus short distance rate? The difference of the bill may sometime be huge!</p>
+            <p>Hence I made this calculator, and  you may use it to compare the cost of your <a href="http://communauto.com/">Communauto</a>  rental a lot more easily.</p>
+            <p>Last update : january 2014. <a href="../">Version française</a>.</p>
           </div>
 
           <div class="pure-g-r">
             <div class="pure-u-1-3">
-              <h2>Votre réservation</h2>
+              <h2>Your location</h2>
               <form class="pure-form pure-form-stacked">
                 <fieldset>
 
-                  <label for="weekday">Jour du départ :</label>
+                  <label for="weekday">Day of departure :</label>
                   <select id="weekday">
-                    <option value="1">Lundi</option>
-                    <option value="2">Mardi</option>
-                    <option value="3">Mercredi</option>
-                    <option value="4">Jeudi</option>
-                    <option value="5">Vendredi</option>
-                    <option value="6">Samedi</option>
-                    <option value="7">Dimanche</option>
+                    <option value="1">Monday</option>
+                    <option value="2">Tuesday</option>
+                    <option value="3">Wenesday</option>
+                    <option value="4">Tursday</option>
+                    <option value="5">Friday</option>
+                    <option value="6">Saturday</option>
+                    <option value="7">Sunday</option>
                   </select>
 
-                  <label for="hours">Nombre d'heures :</label>
+                  <label for="hours">Number of hours:</label>
                   <input id="hours" type="text" value="8">
 
-                  <label for="km">Nombre de KM :</label>
+                  <label for="km">Estimated distance (KM) :</label>
                   <input id="km" type="text" value="80">
 
-                  <label for="plan">Forfait :</label>
+                  <label for="plan">Member package :</label>
                   <select id="plan">
                     <option value="1"
                       data-km-price="0.23"
                       data-km-price-extra="0.23"
                       data-hourly-price="1.50"
                       data-hourly-extra-price="0.5"
-                      data-daily-price="15.0">A - 30$/mois</option>
+                      data-daily-price="15.0">A - 30$/month</option>
                     <option value="2"
                       data-km-price="0.32"
                       data-km-price-extra="0.23"
                       data-hourly-price="1.80"
                       data-hourly-extra-price="0.5"
-                      data-daily-price="18.0">B - 12,50$/mois</option>
+                      data-daily-price="18.0">B - 12,50$/month</option>
                     <option value="3"
                       selected="selected"
                       data-km-price="0.40"
                       data-km-price-extra="0.30"
                       data-hourly-price="2.10"
                       data-hourly-extra-price="0.5"
-                      data-daily-price="21.0">C - 40$/année</option>
+                      data-daily-price="21.0">C - 40$/year</option>
                     <option value="4"
                       data-km-price="0.15"
                       data-km-price-extra="0.15"
                       data-hourly-price="5.00"
                       data-hourly-extra-price="0.5"
-                      data-daily-price="50.0">Lièvre - 40$/année</option>
+                      data-daily-price="50.0">Lièvre - 40$/year</option>
                   </select>
 
-                  <label for="lg-daily-price">Tarif du véhicule :</label>
+                  <label for="lg-daily-price">Vehicle rate :</label>
                   <select id="lg-daily-price">
-                    <option value="19.95">19.95$ (tarif super réduit)</option>
-                    <option value="24.95">24.95$ (tarif réduit)</option>
-                    <option value="29.95" selected="selected">29.95$ (régulier)</option>
+                    <option value="19.95">19.95$ (super reduced rate)</option>
+                    <option value="24.95">24.95$ (reduced rate)</option>
+                    <option value="29.95" selected="selected">29.95$ (regular)</option>
                   </select>
                 </fieldset>
               </form>
             </div>
             <div class="pure-u-1-2">
-              <h2>Comparez les tarifs</h2>
+              <h2>Compare rates</h2>
 
-              <p>Longue distance ou courte distance?</p>
+              <p>Long distance or short distance?</p>
 
               <table class="pure-table total-table">
                 <thead>
                   <tr>
-                    <th>Coût</th>
-                    <th>Courte</th>
-                    <th>Longue</th>
+                    <th></th>
+                    <th>Short</th>
+                    <th>Long</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th>Temps</th>
+                    <th>Time cost</th>
                     <td id="sd-time"></td>
                     <td id="lg-time"></td>
                   </tr>
                   <tr>
-                    <th>KM</th>
+                    <th>KM cost</th>
                     <td id="sd-distance"></td>
                     <td id="lg-distance"></td>
                   </tr>
                   <tr class="total-row js-total-row">
-                    <th>Total</th>
+                    <th>Total cost</th>
                     <td id="sd-total"></td>
                     <td id="lg-total"></td>
                   </tr>
@@ -127,14 +127,14 @@
         </div>
 
         <footer class="footer">
-          <p>Conçu par <a href="http://j15e.com">Jean-Philippe Doyle</a> pour ma copine.
-            <a href="mailto:jeanphilippe.doyle@gmail.com">Envoyez un commentaire</a>.
+          <p>Made by <a href="http://j15e.com">Jean-Philippe Doyle</a> for my girlfriend.
+            <a href="mailto:jeanphilippe.doyle@gmail.com">Send me a comment</a>.
             <br/>
-            <a class="mini" href="http://github.com/j15e/communauto">Améliorez ou ajustez les calculs</a>
+            <a class="mini" href="http://github.com/j15e/communauto">Improve this web page</a>
             <a class="mini" href="https://plus.google.com/102141937816354478691?rel=author">Google+</a>
           </p>
 
-          <p class="disclaimer">Important : Ce site est une initiative citoyenne est n'est aucunement affilié à Communauto inc.</p>
+          <p class="disclaimer">Disclaimer : This website is a personal citizen initiative and is not affiliated with Communauto inc.</p>
         </footer>
       </div>
     </div>

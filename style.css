@@ -15,6 +15,7 @@ header.pure-u {
   margin: 0;
 }
 .brand-title {
+  color: #1A4D1A;
   text-transform: uppercase;
 }
 .brand-tagline {
@@ -61,10 +62,23 @@ header.pure-u {
   background-color: #cdeccd;
 }
 
+h1, h2, p, label {
+  font-family: 'Roboto Slab', serif;
+}
+h2 { color: #222; }
+.content {
+  color: #333;
+  line-height: 1.45em;
+}
+
 @media (max-width: 480px) {
+  header.pure-u { padding: 0.5em 1em; }
+  .brand-title { font-size: 1.5em; }
+  .brand-tagline { font-size: 1em; }
   .content {
-    padding: 2em 1em 0;
+    padding: 1em 1em 0;
   }
 }
 
-.about { max-width: 600px; }
+hgroup { max-width: 800px; margin: 0 auto; }
+.content { max-width: 800px; }

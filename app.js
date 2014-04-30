@@ -57,7 +57,7 @@ $(document).ready(function(){
   $("form input").first().trigger('change');
 
   function getInt(str) {
-    return parseInt(str) || 0;
+    return parseInt(str, 10) || 0;
   }
 
   function paramsShortDistance($plan){

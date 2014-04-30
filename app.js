@@ -80,19 +80,33 @@ $(document).ready(function(){
     var $daily_price = $('#lg-daily-price option:selected');
     var daily_price = parseFloat($daily_price.attr('value'));
     var daily_first_extra = parseFloat($daily_price.data('first-extra'));
+    var weekly_price = parseFloat($daily_price.data('weekly-price'));
     var base_km_price = 0.17;
     var extra_km_price = 0.13;
     var extra_offset = 300;
 
-    // @todo compute week cost
-    var days_cost = days * daily_price + daily_first_extra;
+    // Calculate time cost
+    var time_cost = 0;
+    for(var days_left = days; days_left > 0; days_left = days_left-1){
+      // Apply weekly cost if possible
+      if(days_left >= 6) {
+        time_cost += weekly_price;
+        days_left = days_left - 6;
+      } else {
+        // First day extra
+        if(days_left == days) time_cost += daily_first_extra;
+        time_cost += daily_price;
+      }
+    }
+
+    // Calculate distance cost
     var km_cost = base_km_price * (km > extra_offset ? extra_offset : km);
     km_cost += extra_km_price * (km > extra_offset ? km - extra_offset : 0);
 
     return {
-      time: days_cost,
+      time: time_cost,
       distance: km_cost,
-      total: days_cost + km_cost
+      total: time_cost + km_cost
     };
   }
 

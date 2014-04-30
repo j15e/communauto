@@ -77,14 +77,16 @@ $(document).ready(function(){
   }
 
   function computeLongDistance(days, km){
-    var daily_price = parseFloat($('#lg-daily-price option:selected').attr('value'));
+    var $daily_price = $('#lg-daily-price option:selected');
+    var daily_price = parseFloat($daily_price.attr('value'));
+    var daily_first_extra = parseFloat($daily_price.data('first-extra'));
     var base_km_price = 0.17;
     var extra_km_price = 0.13;
     var extra_offset = 300;
 
     // @todo compute week cost
-    days_cost = days * daily_price;
-    km_cost = base_km_price * (km > extra_offset ? extra_offset : km);
+    var days_cost = days * daily_price + daily_first_extra;
+    var km_cost = base_km_price * (km > extra_offset ? extra_offset : km);
     km_cost += extra_km_price * (km > extra_offset ? km - extra_offset : 0);
 
     return {

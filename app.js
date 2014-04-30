@@ -119,7 +119,7 @@ $(document).ready(function(){
   }
 
   function highlightCheapest(longDistance, shortDistance) {
-    var cheapest = (longDistance < shortDistance) ? 'lg' : 'sd';
+    var cheapest = (longDistance && longDistance < shortDistance) ? 'lg' : 'sd';
 
     $total_cells.removeClass('highlight');
     $total_cells.filter('#' + cheapest + '-total').addClass('highlight');

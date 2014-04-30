@@ -6,12 +6,20 @@ $(document).ready(function(){
     var hours = getInt($('#hours').val());
     var km = getInt($('#km').val());
     var $plan = $('#plan option:selected');
+    var lg_available = $plan.data('lg-available');
 
     // Compute & show long distance
-    ld = computeLongDistance(Math.ceil(hours / 24), km);
-    $('#lg-time').text(ld.time.toFixed(2) +" $");
-    $('#lg-distance').text(ld.distance.toFixed(2) +" $");
-    $('#lg-total').text(ld.total.toFixed(2) +" $");
+    if(getInt(lg_available) == 1)
+    {
+      ld = computeLongDistance(Math.ceil(hours / 24), km);
+      $('#lg-time').text(ld.time.toFixed(2) +" $");
+      $('#lg-distance').text(ld.distance.toFixed(2) +" $");
+      $('#lg-total').text(ld.total.toFixed(2) +" $");
+    } else {
+      $('#lg-time').text('-');
+      $('#lg-distance').text('-');
+      $('#lg-total').text('-');
+    }
 
     // Compute & show short distance
     sd = computeShortDistance(hours, km, weekday, $plan)

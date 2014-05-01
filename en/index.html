@@ -25,9 +25,9 @@
 
           <div class="about">
             <h2>Which plan to choose?</h2>
-            <p>Communauto dosen't automatically suggest the best plan to pick when you estimate your rental time and distance, you have to decide. How much does it cost with long distance rate versus short distance rate? Be careful, the difference of the bill may sometime be huge!</p>
+            <p>Communauto dosen't automatically suggest the best plan to pick when you estimate your rental time and distance, you have to decide. How much does it cost with long distance rate versus short distance rate? Or maybe I can get lower rate with the Super Lièvre? Have you think about the Workweek rate with package C? Be careful, the difference of the bill may sometime be huge!</p>
             <p>Hence I made this calculator, and  you may use it to compare the cost of your <a href="http://communauto.com/">Communauto</a>  rental a lot more easily.</p>
-            <p>Last update : january 2014. <a href="../">Version française</a>.</p>
+            <p>Last update : may 2014. <a href="../">Version française</a>.</p>
           </div>
 
           <div class="pure-g-r">
@@ -56,37 +56,44 @@
                   <label for="plan">Member package :</label>
                   <select id="plan">
                     <option value="1"
+                      data-lg-available="1"
                       data-km-price="0.23"
                       data-km-price-extra="0.23"
-                      data-hourly-price="1.50"
-                      data-hourly-extra-price="0.5"
-                      data-daily-price="15.0">A - 30$/month</option>
+                      data-hourly-price="1.70"
+                      data-hourly-extra-price="0.4"
+                      data-daily-price="17.0">A - 30$/month</option>
                     <option value="2"
+                      data-apply-lower="4"
+                      data-apply-lower-hourly-price-extra="-1.0"
+                      data-lg-available="1"
                       data-km-price="0.32"
                       data-km-price-extra="0.23"
-                      data-hourly-price="1.80"
-                      data-hourly-extra-price="0.5"
-                      data-daily-price="18.0">B - 12,50$/month</option>
+                      data-hourly-price="2.0"
+                      data-hourly-extra-price="0.4"
+                      data-daily-price="20.0">B - 12.50$/month</option>
                     <option value="3"
                       selected="selected"
+                      data-apply-lower="4"
+                      data-apply-lower-hourly-price-extra="-1.0"
+                      data-lg-available="1"
                       data-km-price="0.40"
                       data-km-price-extra="0.30"
-                      data-hourly-price="2.10"
-                      data-hourly-extra-price="0.5"
-                      data-daily-price="21.0">C - 40$/year</option>
+                      data-hourly-price="2.30"
+                      data-hourly-extra-price="0.4"
+                      data-daily-price="23.0">C - 40$/year</option>
                     <option value="4"
-                      data-km-price="0.15"
-                      data-km-price-extra="0.15"
-                      data-hourly-price="5.00"
-                      data-hourly-extra-price="0.5"
-                      data-daily-price="50.0">Lièvre - 40$/year</option>
+                      data-lg-available="0"
+                      data-km-price="0.16"
+                      data-km-price-extra="0.16"
+                      data-hourly-price="5.20"
+                      data-hourly-extra-price="0.4"
+                      data-daily-price="52.0">Lièvre - 40$/year</option>
                   </select>
 
                   <label for="lg-daily-price">Vehicle rate :</label>
                   <select id="lg-daily-price">
-                    <option value="19.95">19.95$ (super reduced rate)</option>
-                    <option value="24.95">24.95$ (reduced rate)</option>
-                    <option value="29.95" selected="selected">29.95$ (regular)</option>
+                    <option value="29.95" data-first-extra="3.0" data-weekly-price="185.69" selected="selected">Regular</option>
+                    <option value="24.95" data-first-extra="3.0" data-weekly-price="154.69">Promotion 27.95$/24.95$/154.69$</option>
                   </select>
                 </fieldset>
               </form>
